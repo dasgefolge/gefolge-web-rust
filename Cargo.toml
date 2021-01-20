@@ -8,9 +8,9 @@ authors = [
 edition = "2018"
 
 [dependencies]
-pyo3 = "0.12"
+pyo3 = "0.13"
 
 [dependencies.serenity]
-version = "0.9"
+version = "0.10"
 default-features = false
 features = ["model", "rustls_backend"] #TODO remove rustls-backend feature when https://github.com/serenity-rs/serenity/issues/763 is fixed
