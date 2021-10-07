@@ -10,13 +10,13 @@ pub struct Mensch {
 
 impl Mensch {
     fn inner<'p>(&self, py: Python<'p>) -> PyResult<&'p PyAny> {
-        Ok(crate::import(py, "gefolge_web.login")?.get("Mensch")?.call1((self.snowflake.0,))?)
+        Ok(crate::import(py, "gefolge_web.login")?.getattr("Mensch")?.call1((self.snowflake.0,))?)
     }
 
     pub fn by_api_key(api_key: &str) -> PyResult<Option<Mensch>> {
         Ok(
             Python::with_gil(|py| {
-                PyResult::Ok(if let Some(mensch) = crate::import(py, "gefolge_web.login")?.get("Mensch")?.call_method1("by_api_key", (api_key,))?.extract::<Option<&PyAny>>()? {
+                PyResult::Ok(if let Some(mensch) = crate::import(py, "gefolge_web.login")?.getattr("Mensch")?.call_method1("by_api_key", (api_key,))?.extract::<Option<&PyAny>>()? {
                     Some(mensch.getattr("snowflake")?.extract()?)
                 } else {
                     None
