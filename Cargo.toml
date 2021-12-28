@@ -8,7 +8,7 @@ authors = [
 edition = "2018"
 
 [dependencies]
-pyo3 = "0.14"
+pyo3 = "0.15"
 
 [dependencies.serenity]
 version = "0.10"
